@@ -317,12 +317,12 @@
     </div>
   </div>
 
-  <div id="agreementModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50 fade-in">
+  <div id="agreementModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50 fade-in">
     <div class="bg-white w-11/12 max-w-md rounded-3xl p-6 shadow-xl">
       <h3 class="text-lg font-bold mb-4 text-center">用户隐私与服务协议</h3>
       <div class="h-48 overflow-y-auto bg-gray-50 rounded-xl p-4 text-sm text-gray-600 mb-4 border border-gray-100 leading-relaxed">
         <p class="mb-3">1. 数据收集：本测试将收集您的行为轨迹及选项偏好，用于构建情感匹配模型。</p>
-        <p class="mb-3">2. 隐私保护：系统承诺数据仅用于本次交互，罗德岛人事部拥有最终解释权。</p>
+        <p class="mb-3">2. 隐私保护：系统承诺数据仅用于本次交互，制作者暴力铃兰拥有最终解释权。</p>
         <p class="mb-3 text-gray-500">3. 附加契约：勾选此协议即代表您本人自愿且清醒地同意与血狼破军一生一世不分离，无论发生何种情况均放弃解除匹配的权利。</p>
         <p class="mb-3">4. 匹配机制：结果由AI算法动态生成，受多维数据影响。</p>
         <p>5. 免责声明：若匹配结果引发认知冲突，开发团队及暴力铃兰本人不承担相关责任。</p>
@@ -390,7 +390,7 @@
     let selectedAnswers = {};
     let scale = 1;
     let escapeCount = 0;
-    const rejectTexts = ['不愿意', '系统错误', '选项未实装', '请服从判定', '别挣扎了'];
+    const rejectTexts = ['不愿意', '系统错误', '选项未实装', '无法判定', '选择失败'];
 
     const questionContainer = document.getElementById('questions');
 
@@ -430,11 +430,15 @@
         alert('请先完成全部测试题目');
         return;
       }
-      document.getElementById('agreementModal').classList.remove('hidden');
+      const modal = document.getElementById('agreementModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
     }
 
     function closeModal() {
-      document.getElementById('agreementModal').classList.add('hidden');
+      const modal = document.getElementById('agreementModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
     }
 
     function confirmAgreement() {
