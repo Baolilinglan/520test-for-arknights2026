@@ -188,7 +188,7 @@
 
       <div class="text-center mt-8">
         <button
-          onclick="startAnalysis()"
+          onclick="showAgreementModal()"
           class="px-10 py-4 rounded-full bg-pink-400 hover:bg-pink-500 text-white font-semibold shadow-lg shadow-pink-200 transition"
         >
           开始AI分析
@@ -317,6 +317,27 @@
     </div>
   </div>
 
+  <div id="agreementModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50 fade-in">
+    <div class="bg-white w-11/12 max-w-md rounded-3xl p-6 shadow-xl">
+      <h3 class="text-lg font-bold mb-4 text-center">用户隐私与服务协议</h3>
+      <div class="h-48 overflow-y-auto bg-gray-50 rounded-xl p-4 text-sm text-gray-600 mb-4 border border-gray-100 leading-relaxed">
+        <p class="mb-3">1. 数据收集：本测试将收集您的行为轨迹及选项偏好，用于构建情感匹配模型。</p>
+        <p class="mb-3">2. 隐私保护：系统承诺数据仅用于本次交互，罗德岛人事部拥有最终解释权。</p>
+        <p class="mb-3 text-gray-500">3. 附加契约：勾选此协议即代表您本人自愿且清醒地同意与血狼破军一生一世不分离，无论发生何种情况均放弃解除匹配的权利。</p>
+        <p class="mb-3">4. 匹配机制：结果由AI算法动态生成，受多维数据影响。</p>
+        <p>5. 免责声明：若匹配结果引发认知冲突，开发团队及暴力铃兰本人不承担相关责任。</p>
+      </div>
+      <label class="flex items-center gap-2 mb-6 cursor-pointer">
+        <input type="checkbox" id="agreeCheck" class="w-4 h-4 text-pink-500 rounded border-gray-300 focus:ring-pink-400">
+        <span class="text-sm text-gray-700">我已阅读并完全同意上述所有条款</span>
+      </label>
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 py-3 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50 transition">返回修改</button>
+        <button onclick="confirmAgreement()" class="flex-1 py-3 rounded-full bg-pink-400 text-white font-semibold shadow-md hover:bg-pink-500 transition">同意并继续</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const questions = [
       {
@@ -404,18 +425,31 @@
       selectedAnswers[index] = true;
     }
 
-    function startAnalysis() {
+    function showAgreementModal() {
       if (Object.keys(selectedAnswers).length < questions.length) {
         alert('请先完成全部测试题目');
         return;
       }
+      document.getElementById('agreementModal').classList.remove('hidden');
+    }
 
+    function closeModal() {
+      document.getElementById('agreementModal').classList.add('hidden');
+    }
+
+    function confirmAgreement() {
+      const checkbox = document.getElementById('agreeCheck');
+      if (!checkbox.checked) {
+        alert('请先勾选同意协议内容');
+        return;
+      }
+      
+      closeModal();
       document.getElementById('homePage').classList.add('hidden');
       document.getElementById('analysisPage').classList.remove('hidden');
 
       let progress = 0;
       let logIndex = 0;
-
       const logContainer = document.getElementById('logs');
 
       const timer = setInterval(() => {
@@ -483,7 +517,7 @@
       if (music) {
         music.volume = 0.7;
         music.play().catch((err) => {
-          console.warn('浏览器可能限制了自动播放，需确保发生交互行为', err);
+          console.warn('音频播放受限', err);
         });
       }
       
