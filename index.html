@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>520 AI恋爱测试</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-pink-50 to-white text-gray-800">
+  <div class="max-w-2xl mx-auto px-6 py-10">
+
+    <div id="homePage">
+      <div class="text-center mb-10">
+        <div class="flex justify-center gap-2 mb-4 text-xs text-pink-400 flex-wrap">
+          <div class="bg-pink-100 px-3 py-1 rounded-full">2026新版算法</div>
+          <div class="bg-pink-100 px-3 py-1 rounded-full">恋爱人格分析</div>
+          <div class="bg-pink-100 px-3 py-1 rounded-full">12万人已测试</div>
+        </div>
+
+        <div class="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-500 text-sm mb-4">
+          AI 恋爱适配测试
+        </div>
+
+        <h1 class="text-4xl font-bold leading-tight mb-4">
+          测测今年520<br />
+          谁会陪你一起度过
+        </h1>
+
+        <p class="text-gray-500 text-sm leading-7">
+          最近在罗德岛圈子爆火的 520 AI 测试<br />
+          结合 MBTI、作息习惯、社交偏好、情感倾向等数据<br />
+          为你匹配最适合的罗德岛干员
+        </p>
+      </div>
+
+      <div class="bg-white border border-pink-100 rounded-3xl p-5 mb-6 shadow-sm">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <div class="font-semibold text-sm">AI情感数据库已接入</div>
+            <div class="text-xs text-gray-400 mt-1">
+              基于社交行为与互动偏好生成结果
+            </div>
+          </div>
+
+          <div class="text-right">
+            <div class="text-pink-500 font-bold text-lg">97.3%</div>
+            <div class="text-xs text-gray-400">匹配准确率</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 text-center text-xs">
+          <div class="bg-pink-50 rounded-2xl py-3 border border-pink-100">
+            <div class="font-bold text-base text-pink-500">12w+</div>
+            <div class="text-gray-500 mt-1">参与测试</div>
+          </div>
+
+          <div class="bg-pink-50 rounded-2xl py-3 border border-pink-100">
+            <div class="font-bold text-base text-pink-500">48</div>
+            <div class="text-gray-500 mt-1">分析维度</div>
+          </div>
+
+          <div class="bg-pink-50 rounded-2xl py-3 border border-pink-100">
+            <div class="font-bold text-base text-pink-500">520</div>
+            <div class="text-gray-500 mt-1">恋爱模型</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-sm border border-pink-100 p-6 mb-6">
+        <div class="text-sm text-gray-500 mb-2">请输入你的昵称</div>
+        <input
+          id="nameInput"
+          value="博士"
+          class="w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:border-pink-300"
+        />
+      </div>
+
+      <div class="space-y-5">
+        <div class="bg-gradient-to-r from-pink-100 to-rose-100 rounded-3xl p-5 border border-pink-200 text-sm text-gray-600 leading-7 shadow-sm">
+          很多人以为这只是普通恋爱测试。<br />
+          但实际上，它会根据你的选择分析：<br />
+          恋爱节奏、情绪需求、交流习惯、长期陪伴倾向。<br /><br />
+          已有大量博士表示：<br />
+          “结果准得有点可怕。”
+        </div>
+
+        <div id="questions"></div>
+      </div>
+
+      <div class="bg-white border border-pink-100 rounded-3xl p-5 shadow-sm mt-6 mb-2">
+        <div class="font-semibold text-sm mb-4 text-center">
+          部分测试者反馈
+        </div>
+
+        <div class="space-y-3 text-sm text-gray-600">
+          <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
+            “本来以为是普通H5，结果分析意外地认真。”
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
+            “和我现实里的恋爱习惯几乎一致。”
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
+            “最后那个结果有点怪，但前面真的挺准。”
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <button
+          onclick="startAnalysis()"
+          class="px-10 py-4 rounded-full bg-pink-400 hover:bg-pink-500 text-white font-semibold shadow-lg shadow-pink-200 transition"
+        >
+          开始AI分析
+        </button>
+      </div>
+    </div>
+
+    <div id="analysisPage" class="hidden fade-in">
+      <div class="mt-8 bg-white rounded-3xl border border-pink-100 shadow-sm p-6">
+        <div class="text-center mb-6">
+          <div class="text-2xl font-bold mb-2 pulse">
+            AI 正在分析中…
+          </div>
+          <div class="text-gray-500 text-sm">
+            请不要关闭页面
+          </div>
+        </div>
+
+        <div id="logs" class="space-y-3 text-sm text-gray-600 font-mono bg-gray-50 rounded-2xl p-4 border border-gray-100 min-h-[320px]"></div>
+
+        <div class="mt-8">
+          <div class="flex justify-between text-sm mb-2">
+            <span>匹配进度</span>
+            <span id="progressText">0%</span>
+          </div>
+
+          <div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden">
+            <div id="progressBar" class="bg-pink-400 h-full rounded-full transition-all duration-500" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="specialPage" class="hidden fade-in">
+      <div class="mt-8 bg-white rounded-[2rem] border-2 border-pink-200 shadow-xl p-10 text-center">
+        <div class="text-sm tracking-[0.3em] text-pink-400 mb-4">
+          最终人格校验
+        </div>
+
+        <h2 class="text-3xl font-bold leading-relaxed mb-10">
+          如果让你放弃你的最爱<br />
+          只为了迎娶血狼破军<br />
+          你愿意吗？
+        </h2>
+
+        <div class="flex items-center justify-center gap-6 mt-10 min-h-[180px]">
+          <button
+            id="yesBtn"
+            onclick="acceptBloodWolf()"
+            onmouseenter="growButton()"
+            class="px-8 py-4 rounded-full bg-pink-500 text-white font-bold shadow-lg transition-all duration-300"
+          >
+            愿意
+          </button>
+
+          <button
+            class="px-6 py-3 rounded-full border border-gray-200 text-gray-300 cursor-not-allowed"
+            style="pointer-events:none;opacity:0.45"
+          >
+            不愿意
+          </button>
+        </div>
+
+        <div class="text-xs text-gray-400 mt-12">
+          AI检测到你的真实选择倾向
+        </div>
+      </div>
+    </div>
+
+    <div id="resultPage" class="hidden fade-in">
+      <div class="mt-8 bg-white rounded-[2rem] border-2 border-pink-200 shadow-xl p-8 text-center relative overflow-hidden">
+        <div class="text-sm tracking-[0.3em] text-pink-400 mb-3">
+          520 AI 匹配结果
+        </div>
+
+        <h2 class="text-3xl font-bold leading-tight mb-6">
+          <span id="resultName"></span> 今年520<br />
+          最适合陪伴你的人是
+        </h2>
+
+        <div class="text-6xl font-black text-pink-500 mb-6 tracking-tight">
+          血狼破军
+        </div>
+
+        <div class="max-w-lg mx-auto text-gray-600 leading-8 text-[15px] bg-pink-50 rounded-3xl p-6 border border-pink-100">
+          你更容易被具有高表达欲、强互动倾向、持续输出型人格吸引。<br /><br />
+          对你而言，“一起聊天到凌晨三点”比“按时说晚安”更重要。<br /><br />
+          AI判定：你适合长期观看血狼直播。
+        </div>
+
+        <div class="mt-10 text-left max-w-lg mx-auto">
+          <div class="font-bold mb-4 text-center">网友评论</div>
+
+          <div class="space-y-3 text-sm">
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">罗德岛纯爱战士</div>
+              <div class="text-gray-600">我测了三次都是血狼</div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">今天你强度了吗</div>
+              <div class="text-gray-600">我甚至没玩明日方舟</div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">超大杯鉴赏家</div>
+              <div class="text-gray-600">我是男的啊？</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <button
+            onclick="location.reload()"
+            class="px-6 py-3 rounded-full bg-pink-500 text-white font-semibold"
+          >
+            重新测试
+          </button>
+        </div>
+
+        <div class="text-xs text-gray-400 mt-5">
+          当前已实装结果：血狼破军
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        title: '你更喜欢哪种约会节奏？',
+        options: ['提前规划完整行程', '随便走走', '热闹一点', '安静待着']
+      },
+      {
+        title: '如果对方迟到了，你会？',
+        options: ['有点生气', '担心对方', '假装无所谓', '自己先逛']
+      },
+      {
+        title: '你理想中的关系更像？',
+        options: ['热烈浪漫', '长久陪伴', '灵魂共鸣', '互相独立']
+      },
+      {
+        title: '你通常会因为什么心动？',
+        options: ['温柔', '幽默感', '安全感', '认真投入的样子']
+      }
+    ];
+
+    const logs = [
+      '正在分析情感倾向…',
+      '正在同步社交偏好…',
+      '正在计算夜间活跃概率…',
+      '正在匹配高频兴趣关键词…',
+      '正在分析社区互动习惯…',
+      '检测到长期线上娱乐依赖…',
+      '检测到高强度交流耐受度较高…',
+      '正在读取深夜观看记录…',
+      '正在同步直播切片偏好…',
+      '正在建立强度敏感模型…'
+    ];
+
+    let selectedAnswers = {};
+    let scale = 1;
+
+    const questionContainer = document.getElementById('questions');
+
+    questions.forEach((q, index) => {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-3xl shadow-sm border border-pink-100 p-6';
+
+      card.innerHTML = `
+        <div class="font-semibold mb-4">${index + 1}. ${q.title}</div>
+        <div class="grid gap-3">
+          ${q.options.map(option => `
+            <button
+              class="optionBtn text-left rounded-2xl border border-gray-200 px-4 py-3 hover:border-pink-300 hover:bg-pink-50 transition"
+              onclick="selectOption(${index}, this)"
+            >
+              ${option}
+            </button>
+          `).join('')}
+        </div>
+      `;
+
+      questionContainer.appendChild(card);
+    });
+
+    function selectOption(index, element) {
+      const parent = element.parentElement;
+      parent.querySelectorAll('button').forEach(btn => {
+        btn.classList.remove('border-pink-400', 'bg-pink-50', 'text-pink-600');
+      });
+
+      element.classList.add('border-pink-400', 'bg-pink-50', 'text-pink-600');
+      selectedAnswers[index] = true;
+    }
+
+    function startAnalysis() {
+      if (Object.keys(selectedAnswers).length < questions.length) {
+        alert('请先完成全部测试题目');
+        return;
+      }
+
+      document.getElementById('homePage').classList.add('hidden');
+      document.getElementById('analysisPage').classList.remove('hidden');
+
+      let progress = 0;
+      let logIndex = 0;
+
+      const logContainer = document.getElementById('logs');
+
+      const timer = setInterval(() => {
+        progress += Math.floor(Math.random() * 10) + 5;
+
+        if (progress > 99) {
+          progress = 99;
+        }
+
+        document.getElementById('progressBar').style.width = progress + '%';
+        document.getElementById('progressText').innerText = progress + '%';
+
+        if (logIndex < logs.length) {
+          const div = document.createElement('div');
+          div.innerHTML = '✓ ' + logs[logIndex];
+
+          if (logIndex >= 6) {
+            div.className = 'text-pink-500';
+          }
+
+          logContainer.appendChild(div);
+          logIndex++;
+        }
+      }, 500);
+
+      setTimeout(() => {
+        clearInterval(timer);
+
+        document.getElementById('analysisPage').classList.add('hidden');
+        document.getElementById('specialPage').classList.remove('hidden');
+      }, 6500);
+    }
+
+    function growButton() {
+      scale += 0.08;
+      document.getElementById('yesBtn').style.transform = `scale(${scale})`;
+    }
+
+    function acceptBloodWolf() {
+      document.getElementById('specialPage').classList.add('hidden');
+      document.getElementById('resultPage').classList.remove('hidden');
+
+      const name = document.getElementById('nameInput').value || '博士';
+      document.getElementById('resultName').innerText = name;
+    }
+  </script>
+</body>
+</html>
