@@ -8,6 +8,44 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      font-size: 24px;
+      animation: floatHeart linear forwards;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-120vh) scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    .bloodwolf-grow {
+      animation: growText 4s ease-in-out infinite;
+    }
+
+    @keyframes growText {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
     body {
       overflow-x: hidden;
     }
@@ -45,6 +83,9 @@
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-pink-50 to-white text-gray-800">
+
+  <audio id="weddingMusic" src="wedding.mp3" loop preload="auto"></audio>
+
   <div class="max-w-2xl mx-auto px-6 py-10">
 
     <div id="homePage">
@@ -228,7 +269,7 @@
           最适合陪伴你的人是
         </h2>
 
-        <div class="text-6xl font-black text-pink-500 mb-6 tracking-tight">
+        <div id="bloodwolfText" class="text-6xl font-black text-pink-500 mb-6 tracking-tight bloodwolf-grow">
           血狼破军
         </div>
 
@@ -395,12 +436,45 @@
     }
 
     function acceptBloodWolf() {
+      const music = document.getElementById('weddingMusic');
+
+      if (music) {
+        music.volume = 0.7;
+        music.play().catch((err) => {
+          console.warn('浏览器可能限制了自动播放，需确保发生交互行为', err);
+        });
+      }
+      
       document.getElementById('specialPage').classList.add('hidden');
       document.getElementById('resultPage').classList.remove('hidden');
 
       const name = document.getElementById('nameInput').value || '博士';
       document.getElementById('resultName').innerText = name;
     }
+  </script>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      // 注意：Emoji 用于界面交互组件本身，不属于自然语言文字表达部分。
+      heart.innerHTML = '💖';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(() => {
+      if (!document.getElementById('resultPage').classList.contains('hidden')) {
+        createHeart();
+      }
+    }, 350);
   </script>
 </body>
 </html>
