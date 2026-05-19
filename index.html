@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>520 AI恋爱测试</title>
+  <title>520 明日方舟匹配干员恋爱测试</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -80,6 +80,22 @@
         opacity: 1;
       }
     }
+    
+    .stamp {
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 120px;
+      height: 120px;
+      border: 4px solid #ef4444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.4;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-pink-50 to-white text-gray-800">
@@ -97,7 +113,7 @@
         </div>
 
         <div class="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-500 text-sm mb-4">
-          AI 恋爱适配测试
+          恋爱适配测试
         </div>
 
         <h1 class="text-4xl font-bold leading-tight mb-4">
@@ -106,7 +122,7 @@
         </h1>
 
         <p class="text-gray-500 text-sm leading-7">
-          最近在罗德岛圈子爆火的 520 AI 测试<br />
+          最近在明日方舟圈子爆火的 520 匹配度 测试<br />
           结合 MBTI、作息习惯、社交偏好、情感倾向等数据<br />
           为你匹配最适合的罗德岛干员
         </p>
@@ -115,7 +131,7 @@
       <div class="bg-white border border-pink-100 rounded-3xl p-5 mb-6 shadow-sm">
         <div class="flex items-center justify-between mb-3">
           <div>
-            <div class="font-semibold text-sm">AI情感数据库已接入</div>
+            <div class="font-semibold text-sm">情感数据库已接入</div>
             <div class="text-xs text-gray-400 mt-1">
               基于社交行为与互动偏好生成结果
             </div>
@@ -173,7 +189,7 @@
 
         <div class="space-y-3 text-sm text-gray-600">
           <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
-            “本来以为是普通H5，结果分析意外地认真。”
+            “本来以为是普通骗钱的测试，结果分析意外地认真。”
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
@@ -181,7 +197,7 @@
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-3 border border-gray-100">
-            “最后那个结果有点怪，但前面真的挺准。”
+            “虽然最后那个结果有点怪，但前面真的挺准的。”
           </div>
         </div>
       </div>
@@ -191,7 +207,7 @@
           onclick="showAgreementModal()"
           class="px-10 py-4 rounded-full bg-pink-400 hover:bg-pink-500 text-white font-semibold shadow-lg shadow-pink-200 transition"
         >
-          开始AI分析
+          开始分析
         </button>
       </div>
     </div>
@@ -200,7 +216,7 @@
       <div class="mt-8 bg-white rounded-3xl border border-pink-100 shadow-sm p-6">
         <div class="text-center mb-6">
           <div class="text-2xl font-bold mb-2 pulse">
-            AI 正在分析中…
+            正在分析中…
           </div>
           <div class="text-gray-500 text-sm">
             请不要关闭页面
@@ -225,7 +241,7 @@
     <div id="specialPage" class="hidden fade-in">
       <div class="mt-8 bg-white rounded-[2rem] border-2 border-pink-200 shadow-xl p-10 text-center">
         <div class="text-sm tracking-[0.3em] text-pink-400 mb-4">
-          最终人格校验
+          最终校验
         </div>
 
         <h2 class="text-3xl font-bold leading-relaxed mb-10">
@@ -262,7 +278,7 @@
     <div id="resultPage" class="hidden fade-in">
       <div class="mt-8 bg-white rounded-[2rem] border-2 border-pink-200 shadow-xl p-8 text-center relative overflow-hidden">
         <div class="text-sm tracking-[0.3em] text-pink-400 mb-3">
-          520 AI 匹配结果
+          520 匹配结果
         </div>
 
         <h2 class="text-3xl font-bold leading-tight mb-6">
@@ -274,44 +290,75 @@
           血狼破军
         </div>
 
-        <div class="max-w-lg mx-auto text-gray-600 leading-8 text-[15px] bg-pink-50 rounded-3xl p-6 border border-pink-100">
-          你更容易被具有高表达欲、强互动倾向、持续输出型人格吸引。<br /><br />
-          对你而言，“一起聊天到凌晨三点”比“按时说晚安”更重要。<br /><br />
-          AI判定：你适合长期观看血狼直播。
-        </div>
-
-        <div class="mt-10 text-left max-w-lg mx-auto">
-          <div class="font-bold mb-4 text-center">网友评论</div>
-
-          <div class="space-y-3 text-sm">
-            <div class="rounded-2xl border border-gray-100 bg-white p-4">
-              <div class="font-semibold text-gray-700 mb-1">罗德岛纯爱战士</div>
-              <div class="text-gray-600">我测了三次都是血狼</div>
-            </div>
-
-            <div class="rounded-2xl border border-gray-100 bg-white p-4">
-              <div class="font-semibold text-gray-700 mb-1">今天你强度了吗</div>
-              <div class="text-gray-600">我甚至没玩明日方舟</div>
-            </div>
-
-            <div class="rounded-2xl border border-gray-100 bg-white p-4">
-              <div class="font-semibold text-gray-700 mb-1">超大杯鉴赏家</div>
-              <div class="text-gray-600">我是男的啊？</div>
+        <div class="max-w-lg mx-auto mb-8 bg-red-50 border-2 border-red-400 rounded-xl p-6 relative overflow-hidden text-left shadow-sm">
+          <div class="stamp">
+            <div class="text-red-500 font-bold text-lg text-center leading-tight">强制<br>执行</div>
+          </div>
+          <h3 class="text-xl font-bold text-red-600 text-center mb-5 tracking-widest">电子结婚登记证</h3>
+          <div class="space-y-3 text-sm text-gray-800 font-medium z-10 relative">
+            <p>持证人：<span id="certName" class="border-b border-gray-400 inline-block w-32 text-center pb-1"></span></p>
+            <p>登记对象：<span class="border-b border-gray-400 inline-block w-32 text-center text-red-600 font-bold pb-1">血狼破军</span></p>
+            <p>发证日期：<span id="certDate" class="border-b border-gray-400 inline-block w-32 text-center pb-1"></span></p>
+            <div class="mt-4 pt-3 border-t border-red-200 text-xs text-gray-500">
+              备注：本证一经发出，无法退回哦。
             </div>
           </div>
         </div>
 
-        <div class="mt-10">
+        <div class="max-w-lg mx-auto text-gray-600 leading-8 text-[15px] bg-pink-50 rounded-3xl p-6 border border-pink-100">
+          你更容易被具有高表达欲、强互动倾向、持续输出型人格吸引。<br /><br />
+          对你而言，DPS比一切都更重要。<br /><br />
+          AI判定：你适合与血狼破军长相厮守，白头偕老。
+        </div>
+
+        <div class="mt-10 text-left max-w-lg mx-auto">
+          <div class="font-bold mb-4 text-center">网友热门评论</div>
+
+          <div class="space-y-3 text-sm">
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">罗德岛纯爱战士 龙某</div>
+              <div class="text-gray-600">为啥我测了三次都是血狼</div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">今天你水炮了吗</div>
+              <div class="text-gray-600">我甚至都没玩过明日方舟</div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-100 bg-white p-4">
+              <div class="font-semibold text-gray-700 mb-1">超大杯鉴赏家 罗某</div>
+              <div class="text-gray-600">可是我是男的啊？</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-4 max-w-sm mx-auto">
+          <button
+            onclick="stupidShare()"
+            class="px-6 py-3 rounded-full bg-green-400 hover:bg-green-500 text-white font-semibold shadow-sm transition"
+          >
+            一键分享你的绝美爱情
+          </button>
+
+          <div class="flex gap-4">
+            <a href="https://b23.tv/AAHTEjW" target="_blank" class="flex-1 px-4 py-3 rounded-full bg-blue-400 hover:bg-blue-500 text-white font-semibold shadow-sm transition text-center text-sm">
+              作者主页
+            </a>
+            <a href="https://b23.tv/bvotyne" target="_blank" class="flex-1 px-4 py-3 rounded-full bg-orange-400 hover:bg-orange-500 text-white font-semibold shadow-sm transition text-center text-sm">
+              前往血狼直播间
+            </a>
+          </div>
+
           <button
             onclick="location.reload()"
-            class="px-6 py-3 rounded-full bg-pink-500 text-white font-semibold"
+            class="px-6 py-3 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-50 font-semibold transition"
           >
             重新测试
           </button>
         </div>
 
         <div class="text-xs text-gray-400 mt-5">
-          当前已实装结果：血狼破军
+          当前已触发结果：血狼破军
         </div>
       </div>
     </div>
@@ -322,10 +369,10 @@
       <h3 class="text-lg font-bold mb-4 text-center">用户隐私与服务协议</h3>
       <div class="h-48 overflow-y-auto bg-gray-50 rounded-xl p-4 text-sm text-gray-600 mb-4 border border-gray-100 leading-relaxed">
         <p class="mb-3">1. 数据收集：本测试将收集您的行为轨迹及选项偏好，用于构建情感匹配模型。</p>
-        <p class="mb-3">2. 隐私保护：系统承诺数据仅用于本次交互，制作者暴力铃兰拥有最终解释权。</p>
-        <p class="mb-3 text-gray-500">3. 附加契约：勾选此协议即代表您本人自愿且清醒地同意与血狼破军一生一世不分离，无论发生何种情况均放弃解除匹配的权利。</p>
+        <p class="mb-3">2. 隐私保护：系统承诺数据仅用于本次交互，作者暴力铃兰拥有最终解释权。</p>
+        <p class="mb-3 text-gray-500">3. 附加契约：勾选此协议即代表您本人自愿且清醒地同意与血狼破军一生一世不分离，无论发生何种情况均放弃解除恋爱关系的权利。</p>
         <p class="mb-3">4. 匹配机制：结果由AI算法动态生成，受多维数据影响。</p>
-        <p>5. 免责声明：若匹配结果引发认知冲突，开发团队及暴力铃兰本人不承担相关责任。</p>
+        <p>5. 免责声明：若匹配结果引发认知冲突，开发团队及暴力铃兰不承担相关责任。</p>
       </div>
       <label class="flex items-center gap-2 mb-6 cursor-pointer">
         <input type="checkbox" id="agreeCheck" class="w-4 h-4 text-pink-500 rounded border-gray-300 focus:ring-pink-400">
@@ -377,20 +424,20 @@
     const logs = [
       '正在分析情感倾向…',
       '正在同步社交偏好…',
-      '正在计算夜间活跃概率…',
+      '正在计算活跃概率…',
       '正在匹配高频兴趣关键词…',
       '正在分析社区互动习惯…',
       '检测到长期线上娱乐依赖…',
-      '检测到高强度交流耐受度较高…',
-      '正在读取深夜观看记录…',
-      '正在同步直播切片偏好…',
-      '正在建立强度敏感模型…'
+      '检测到耐受度较高…',
+      '正在读取观看记录…',
+      '正在同步偏好…',
+      '正在建立模型…'
     ];
 
     let selectedAnswers = {};
     let scale = 1;
     let escapeCount = 0;
-    const rejectTexts = ['不愿意', '系统错误', '选项未实装', '无法判定', '选择失败'];
+    const rejectTexts = ['不愿意', '系统错误', '选项未实装', '判定失败', '选项加载失败'];
 
     const questionContainer = document.getElementById('questions');
 
@@ -530,6 +577,28 @@
 
       const name = document.getElementById('nameInput').value || '博士';
       document.getElementById('resultName').innerText = name;
+      document.getElementById('certName').innerText = name;
+
+      const today = new Date();
+      const dateString = today.getFullYear() + '年' + (today.getMonth() + 1) + '月' + today.getDate() + '日';
+      document.getElementById('certDate').innerText = dateString;
+    }
+
+    function stupidShare() {
+      const name = document.getElementById('nameInput').value || '博士';
+      const text = `我（${name}）在罗德岛520对象匹配中，被系统判定与【血狼破军】高度适配。我们已经领取了电子结婚证，请大家祝我们幸福。`;
+      
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert("系统提示：羞耻文案已复制到剪贴板，请前往社交平台粘贴发布。\n\n文案内容：" + text);
+      } catch (err) {
+        alert("系统提示：复制失败。");
+      }
+      document.body.removeChild(textArea);
     }
   </script>
 
